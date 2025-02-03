@@ -16,28 +16,28 @@ let places =
             "description": "Home to rich history, stunning architecture, and world-famous cuisine. Explore Rome’s Colosseum, Venice’s canals, and the Tuscan countryside.",
             "imageUrl": "https://example.com/italy.jpg",
             "path": "/italy",
-            "withWho": "Mom"
+            "withWho": "Mom side of the family"
           },
           {
-            "place": "Greece",
+            "place": "Germany",
             "description": "A vast and diverse country featuring iconic landmarks like the Sydney Opera House, Great Barrier Reef, and stunning outback adventures.",
             "imageUrl": "https://example.com/australia.jpg",
-            "path": "/greece",
+            "path": "/germany",
             "withWho": "Friends"
           },
           {
-            "place": "Brazil",
+            "place": "Greece",
             "description": "Known for its vibrant culture, stunning beaches, and the Amazon Rainforest. Experience Rio’s Carnival, Christ the Redeemer, and tropical landscapes.",
             "imageUrl": "https://example.com/brazil.jpg",
-            "path": "/brazil",
-            "withWho": "Solo"
+            "path": "/greece",
+            "withWho": "Sister"
           },
           {
-            "place": "",
+            "place": "Turkey",
             "description": "A destination of breathtaking landscapes, incredible wildlife, and diverse cultures. Go on a safari, visit Cape Town, and explore Table Mountain.",
             "imageUrl": "https://example.com/southafrica.jpg",
-            "path": "/southafrica",
-            "withWho": "Family"
+            "path": "/turkey",
+            "withWho": "Solo"
           }
         ]
       }
@@ -55,6 +55,15 @@ app.use((req, res, next) => {
   })
 
 app.use(express.static(__dirname + "/public"))
+
+app.get("/", (req, res) => {
+  res.render("index.html", places)
+})
+
+app.get("/destinations", (req, res) => {
+  res.render("overview.ejs", places)
+})
+
 
 app.listen(3000, () => {
     console.log("Server running")

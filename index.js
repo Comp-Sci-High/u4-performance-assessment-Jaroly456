@@ -2,49 +2,45 @@ const express = require('express')
 const app = express()
 
 let places = 
-    {
-        "countries": [
+   {
+      countries: [
           {
-            "place": "Japan",
-            "description": "A country blooming with cultrual history. I've always wanted to come here to see what life is like. Trying out the foods and visiting the older parts of Japan.",
-            "imageUrl": "https://example.com/japan.jpg",
-            "path": "/japan",
-            "withWho": "Cousin"
+            name: "Japan",
+            description: "A country blooming with cultrual history. I've always wanted to come here to see what life is like. Trying out the foods and visiting the older parts of Japan.",
+            imageUrl: "https://example.com/japan.jpg",
+            path: "/japan",
+            withWho: "Cousins or friends"
           },
           {
-            "place": "Italy",
-            "description": "Home to rich history, stunning architecture, and world-famous cuisine. Explore Rome’s Colosseum, Venice’s canals, and the Tuscan countryside.",
-            "imageUrl": "https://example.com/italy.jpg",
-            "path": "/italy",
-            "withWho": "Mom side of the family"
+            name: "Italy",
+            description: "Although I've been to Itatly before, I've never been here with my cousins who live here. Thus, making my main goal to visit family and watch my favorite volleyball player in the Italian leauge.",
+            imageUrl: "https://example.com/italy.jpg",
+            path: "/italy",
+            withWho: "Mom side of the family"
           },
           {
-            "place": "Germany",
-            "description": "A vast and diverse country featuring iconic landmarks like the Sydney Opera House, Great Barrier Reef, and stunning outback adventures.",
-            "imageUrl": "https://example.com/australia.jpg",
-            "path": "/germany",
-            "withWho": "Friends"
+            name: "Germany",
+            description: "A country I always hear that has fun. Germany has many places to see and I can vouch since I've been there before. Although it would be great to go again wthout being under adult supervision.",
+            imageUrl: "https://example.com/australia.jpg",
+            path: "/germany",
+            withWho: "Friends"
           },
           {
-            "place": "Greece",
-            "description": "Known for its vibrant culture, stunning beaches, and the Amazon Rainforest. Experience Rio’s Carnival, Christ the Redeemer, and tropical landscapes.",
-            "imageUrl": "https://example.com/brazil.jpg",
-            "path": "/greece",
-            "withWho": "Sister"
+            name: "Greece",
+            description: "Greece has a lot of history and mythology stories. But another reason I want to visit Greece is because of the beautiful cities within the country.",
+            imageUrl: "https://example.com/brazil.jpg",
+            path: "/greece",
+            withWho: "Sisters"
           },
           {
-            "place": "Turkey",
-            "description": "A destination of breathtaking landscapes, incredible wildlife, and diverse cultures. Go on a safari, visit Cape Town, and explore Table Mountain.",
-            "imageUrl": "https://example.com/southafrica.jpg",
-            "path": "/turkey",
-            "withWho": "Solo"
+            name: "South Korea",
+            description: "Home to one of my top 3 food cultures. South Korea has a unique deli experience than we do in New York, which are much better than we have. ",
+            imageUrl: "https://example.com/southafrica.jpg",
+            path: "/korea",
+            withWho: "Solo or with friends"
           }
         ]
       }
-      
-
-
-
 
 
 app.set("view engine", "ejs")
@@ -64,8 +60,9 @@ app.get("/destinations", (req, res) => {
   res.render("overview.ejs", places)
 })
 
-app.get("/:place", (req, res) => {
-  res.render("place.ejs", places)
+app.get("/:country", (req, res) => {
+  const country = req.params.country
+  res.status(200).render("place.ejs", places)
 })
 
 

@@ -6,7 +6,7 @@ let places =
         "countries": [
           {
             "place": "Japan",
-            "description": "A beautiful country blending ancient traditions with cutting-edge technology. Experience cherry blossoms, bustling cities, and serene temples.",
+            "description": "A country blooming with cultrual history. I've always wanted to come here to see what life is like. Trying out the foods and visiting the older parts of Japan.",
             "imageUrl": "https://example.com/japan.jpg",
             "path": "/japan",
             "withWho": "Cousin"
@@ -62,6 +62,10 @@ app.get("/", (req, res) => {
 
 app.get("/destinations", (req, res) => {
   res.render("overview.ejs", places)
+})
+
+app.get("/:place", (req, res) => {
+  res.render("place.ejs", places)
 })
 
 

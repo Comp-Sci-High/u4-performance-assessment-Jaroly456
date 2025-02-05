@@ -127,3 +127,10 @@ p, h2 {
 .center {
     text-align: center;
 }
+
+.countryPic {
+    max-width: 250px;
+    height: auto;
+    margin-bottom: auto;
+    text-align: center;
+}

@@ -129,8 +129,9 @@ p, h2 {
 }
 
 .countryPic {
-    max-width: 250px;
+    max-width: 400px;
     height: auto;
-    margin-bottom: auto;
-    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+    display: block
 }
